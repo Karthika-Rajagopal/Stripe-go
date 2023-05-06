@@ -20,6 +20,8 @@
         <button class="btn btn-primary" id="subscribe">Create subscription</button>
     </div>
 
+    
+    //Once the session ID is received, it is used to redirect the user to the Stripe checkout page using the Stripe API's redirectToCheckout method. The Stripe API key used is a test key, as indicated by the "pk_test_" prefix in the key string
 
     <script sandbox="allow-same-origin">
         const stripe = Stripe("pk_test_51IoMpOKNyEKTIrMRtibrcWUaiGkNm7nC1wmS7L6F0KHdfkA7p7J7YklVvOlbIdxHyrTbHgY7bIDqEVL7NBxiPbJV009MPpMM2p");
