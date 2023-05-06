@@ -9,18 +9,18 @@ import (
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
 
-var PriceId = "price_1MuKSiSHZTnL3EyWDJ2Kmi1D"
+var PriceId = "price_1MuKSiSHZTnL3EyWDJ2Kmi1D" //variable that stores the ID of the subscription product on Stripe
 
-func checkout(email string) (*stripe.CheckoutSession, error) {
+func checkout(email string) (*stripe.CheckoutSession, error) {   //checkout function that creates a new Stripe Checkout session
 	var discounts []*stripe.CheckoutSessionDiscountParams
 
-	discounts = []*stripe.CheckoutSessionDiscountParams{
+	discounts = []*stripe.CheckoutSessionDiscountParams{ //creates a slice of stripe.CheckoutSessionDiscountParams objects with a coupon code, which is added to the Checkout session to apply a discount
 		&stripe.CheckoutSessionDiscountParams{
 			Coupon: stripe.String("832g70gk"),
 		},
 	}
 
-	customerParams := &stripe.CustomerParams{
+	customerParams := &stripe.CustomerParams{  //creates a new Stripe customer with the given email address and adds a metadata key-value pair with the email address
 		Email: stripe.String(email),
 	}
 	customerParams.AddMetadata("FinalEmail", email)
